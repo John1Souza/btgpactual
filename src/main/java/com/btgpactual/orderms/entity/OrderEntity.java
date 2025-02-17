@@ -24,11 +24,11 @@ public class OrderEntity {
 
     private List<OrderItem> items;
 
-    OrderEntity() {
+    public OrderEntity() {
 
     }
 
-    OrderEntity(Long orderId, Long customerId, BigDecimal total) {
+    public OrderEntity(Long orderId, Long customerId, BigDecimal total) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.total = total;
@@ -65,6 +65,14 @@ public class OrderEntity {
 
     public void setItems(List<OrderItem> items) {
         this.items = new ArrayList<>(items);
+    }
+
+    public void addItem(OrderItem item) {
+        this.items.add(item);
+    }
+
+    public void removeItem(OrderItem item) {
+        this.items.remove(item);
     }
 
 }
