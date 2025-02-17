@@ -1,6 +1,7 @@
 package com.btgpactual.orderms.entity;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -23,13 +24,15 @@ public class OrderEntity {
 
     private List<OrderItem> items;
 
-    OrderEntity(){
-        
+    OrderEntity() {
+
     }
-    OrderEntity(Long orderId, Long customerId,BigDecimal total){
+
+    OrderEntity(Long orderId, Long customerId, BigDecimal total) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.total = total;
+        this.items = new ArrayList<>();
     }
 
     public Long getOrderId() {
@@ -56,6 +59,12 @@ public class OrderEntity {
         this.total = total;
     }
 
-    p
+    public List<OrderItem> getItems() {
+        return new ArrayList<>(items);
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = new ArrayList<>(items);
+    }
 
 }
